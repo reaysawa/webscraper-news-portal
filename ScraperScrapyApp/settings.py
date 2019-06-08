@@ -1,25 +1,27 @@
 # -*- coding: utf-8 -*-
+# django orm setup
+import os
 
-# Scrapy settings for scraper_app project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://doc.scrapy.org/en/latest/topics/settings.html
-#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+INSTALLED_APPS = ( 'database' )
+
+# scrapy setup
 BOT_NAME = 'scraper_app'
 
 SPIDER_MODULES = ['scraper_app.spiders']
 NEWSPIDER_MODULE = 'scraper_app.spiders'
-
+ROBOTSTXT_OBEY = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scraper_app (+http://www.yourdomain.com)'
-
-# Obey robots.txt rules
-ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
