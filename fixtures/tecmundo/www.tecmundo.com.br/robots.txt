@@ -1,0 +1,19 @@
+User-agent: "Vegi bot (we follow your robots.txt settings before crawling, you can slow down the bot by change the Crawl-Delay parameter in the settings.if you have an enquiry, please email to: abuse-report@terrykyleseoagency.com)"
+Disallow: /
+Crawl-delay: 60
+
+User-agent: *
+Disallow: /api
+Disallow: /beta
+Disallow: /eyeblaster
+Disallow: /addineyeV2.html 
+Allow: /
+
+User-Agent: Googlebot
+Disallow: /api
+Disallow: /beta
+Disallow: /eyeblaster
+Disallow: /addineyeV2.html 
+Allow: /
+
+Sitemap: https://www.tecmundo.com.br/sitemap/index.xml
