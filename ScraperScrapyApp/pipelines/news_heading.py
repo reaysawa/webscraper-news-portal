@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
+import ScraperScrapyApp.pipelines.django_setup
 from PortalDjangoApp.Portal import models as PortalDjangoAppModels
 
 
 class NewsHeadingPipeline(object):
     """
-    Generic pipeline which batches Scrapy items and does insertion in bulks
+    Pipeline for accumulating only news titles from websites
     """
 
     items = []
@@ -19,10 +20,10 @@ class NewsHeadingPipeline(object):
         """Batches items to save SQL-query insertion times"""
         self.items.append(
             PortalDjangoAppModels.NewsHeading(
-                title=item.title.__str__(),
-                subtitle=item.subtitle.__str__(),
-                read_more=item.read_more.__str__(),
-                banner=item.banner.__str__(),
+                title=item["title"],
+                subtitle=item["subtitle"],
+                read_more=item["read_more"],
+                banner=item["banner"],
             )
         )
         return item

@@ -3,14 +3,16 @@
 import os
 from PortalDjangoApp.PortalDjangoApp.settings import DATABASES
 
-INSTALLED_APPS = ( 'PortalDjangoApp.Portal' )
-
 # scrapy setup
 BOT_NAME = 'ScraperScrapyApp'
 
 SPIDER_MODULES = ['ScraperScrapyApp.spiders']
 NEWSPIDER_MODULE = 'ScraperScrapyApp.spiders'
 ROBOTSTXT_OBEY = True
+
+ITEM_PIPELINES = {
+   'ScraperScrapyApp.pipelines.NewsHeadingPipeline': 1,
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'ScraperScrapyApp (+http://www.yourdomain.com)'
@@ -58,9 +60,6 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'ScraperScrapyApp.pipelines.ScraperAppPipeline': 300,
-#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
