@@ -1,1 +1,7 @@
+--install
+Django
+scrapy
+--cleanup
 jellyfish
+pynvim
+jedi

@@ -5,4 +5,3 @@ class NewsHeading(models.Model):
     subtitle = models.TextField()
     read_more = models.TextField()
     banner = models.TextField()
-

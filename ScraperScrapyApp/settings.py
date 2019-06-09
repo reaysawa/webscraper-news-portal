@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 # django orm setup
 import os
-from PortalDjangoApp.settings import DATABASES
+from PortalDjangoApp.PortalDjangoApp.settings import DATABASES
 
-INSTALLED_APPS = ( 'Portal' )
+INSTALLED_APPS = ( 'PortalDjangoApp.Portal' )
 
 # scrapy setup
-BOT_NAME = 'scraper_app'
+BOT_NAME = 'ScraperScrapyApp'
 
-SPIDER_MODULES = ['scraper_app.spiders']
-NEWSPIDER_MODULE = 'scraper_app.spiders'
+SPIDER_MODULES = ['ScraperScrapyApp.spiders']
+NEWSPIDER_MODULE = 'ScraperScrapyApp.spiders'
 ROBOTSTXT_OBEY = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'scraper_app (+http://www.yourdomain.com)'
+#USER_AGENT = 'ScraperScrapyApp (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -41,13 +41,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'scraper_app.middlewares.ScraperAppSpiderMiddleware': 543,
+#    'ScraperScrapyApp.middlewares.ScraperAppSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'scraper_app.middlewares.ScraperAppDownloaderMiddleware': 543,
+#    'ScraperScrapyApp.middlewares.ScraperAppDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -59,7 +59,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'scraper_app.pipelines.ScraperAppPipeline': 300,
+#    'ScraperScrapyApp.pipelines.ScraperAppPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

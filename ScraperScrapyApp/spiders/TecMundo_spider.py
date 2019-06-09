@@ -1,12 +1,12 @@
-from scrapy.spider import BaseSpider
+from scrapy import Spider
 from scrapy.selector import HtmlXPathSelector
-from scrapy.contrib.loader import XPathItemLoader
-from scrapy.contrib.loader.processor import Join, MapCompose
+from scrapy.loader import ItemLoader
+from scrapy.loader.processors import Join, MapCompose
 
-from scraper_app.items import NewsHeading
+from ScraperScrapyApp.items import NewsHeading
 
 
-class TecMundoSpider(BaseSpider):
+class TecMundoSpider(Spider):
     name = "TecMundoSpider"
     allowed_domains = ["https://tecmundo.com.br"]
     start_urls = ["https://www.tecmundo.com.br/"]
@@ -24,7 +24,7 @@ class TecMundoSpider(BaseSpider):
         selector = HtmlXPathSelector(response)
 
         for heading in selector.select(self.item_field_path):
-            loader = XPathItemLoader(NewsHeading(), selector=heading)
+            loader = ItemLoader(NewsHeading(), selector=heading)
 
             loader.default_input_processor = MapCompose(str.strip)
             loader.default_output_processor = Join()
