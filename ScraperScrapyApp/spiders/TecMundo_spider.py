@@ -16,7 +16,7 @@ class TecMundoSpider(Spider):
         "banner": './/img[@class="nzn-main-img"]/@src',
     }
 
-    def __init__(self, env="DEV", port="8000"):
+    def __init__(self, env="PROD", port="8000"):
         if env == "PROD":
             self.allowed_domains = ["tecmundo.com.br"]
             self.start_urls = ["https://tecmundo.com.br"]

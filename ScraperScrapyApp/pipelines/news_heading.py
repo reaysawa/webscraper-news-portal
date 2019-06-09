@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import ScraperScrapyApp.pipelines.django_setup
+from . import django_setup
 from PortalDjangoApp.Portal.models import NewsHeading
 
 
 class NewsHeadingPipeline(object):
     """
-    Pipeline for accumulating only news titles from websites
+    Pipeline for accumulating only news titles from websites.
+    Probably can be abstracted into something more generic...
     """
 
     items = []
