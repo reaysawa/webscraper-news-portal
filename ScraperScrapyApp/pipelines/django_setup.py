@@ -1,3 +1,4 @@
+# fakes bootstraping a django application so that the ORM can work
 from django.conf import settings
 from django.apps import apps
 from PortalDjangoApp.PortalDjangoApp.settings import DATABASES
