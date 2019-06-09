@@ -25,21 +25,21 @@ cd PortalDjangoApp && ./manage.py migrate
 It will create a db.sqlite3 file in the same folder.
 ## 3. Running...
 ### 3.1 Locally
-- A [Tecmundo](www.tecmundo.com.br) dummy copy is already available at the fixtures folder.
-```
+- A [Tecmundo](https://www.tecmundo.com.br) dummy copy is already available at the fixtures folder.
+```sh
 cd fixtures/tecmundo && python -m http.server
 ```
 - In another terminal - notice the switch for development
-```
+```sh
 cd ScraperScrapyApp && scrapy crawl TecMundoSpider -a env=DEV
 ```
 ### 3.2 Against the real Tecmundo website
-```
+```sh
 cd ScraperScrappyApp && scrapy crawl TecMundoSpider
 ```
 **Note:** After crawling, you can shut down both the server and the crawler.
 ## 4. Checking out the results
-```
+```sh
 cd PortalDjangoApp && ./manage.py runserver
 ```
 
