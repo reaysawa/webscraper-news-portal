@@ -1,0 +1,12 @@
+{% if all_news %}
+<form action="{% url 'list_domain' 'tecmundo' %}" method="post">{% csrf_token %}
+  <button id="tecmundo" type="submit">ONLY FROM TECMUNDO</button>
+</form>
+<ul>
+  {% for news_headline in all_news %}
+    <li>{{ news_headline.read_more }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No news available.</p>
+{% endif %}
