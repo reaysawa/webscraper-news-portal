@@ -8,20 +8,20 @@ from ScraperScrapyApp.items import NewsHeading
 class TecMundoSpider(Spider):
     name = "TecMundoSpider"
 
-    def __init__(self, env='PROD'):
-#         if env == 'PROD':
-            # self.allowed_domains = ["tecmundo.com.br"]
-            # self.start_urls = ["https://tecmundo.com.br"]
-        # else:
-        self.start_urls = ["http://localhost:8080"]
+    def __init__(self, env='DEV', port='8000'):
+        if env == 'PROD':
+            self.allowed_domains = ["tecmundo.com.br"]
+            self.start_urls = ["https://tecmundo.com.br"]
+        else:
+            self.start_urls = [f"http://localhost:%s" % port]
 
         # item parsing
         self.item_field_path = '//*[@id="carousel-tv"]/div/a'
         self.item_fields = {
             "title": ".//@title",
+            "subtitle": './/div[@class="nzn-main-text"]/strong/text()',
             "read_more": ".//@href",
             "banner": './/img[@class="nzn-main-img"]/@src',
-            "subtitle": './/div[@class="nzn-main-text"]/strong/text()',
         }
 
     def parse(self, response):

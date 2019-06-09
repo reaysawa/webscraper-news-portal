@@ -5,6 +5,7 @@ from PortalDjangoApp.PortalDjangoApp.settings import DATABASES
 
 # scrapy setup
 BOT_NAME = 'ScraperScrapyApp'
+LOG_LEVEL='ERROR'
 
 SPIDER_MODULES = ['ScraperScrapyApp.spiders']
 NEWSPIDER_MODULE = 'ScraperScrapyApp.spiders'
