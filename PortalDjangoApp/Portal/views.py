@@ -11,11 +11,12 @@ def get_news_context(domain=None):
             all_news = NewsHeading.objects.filter(
                 read_more__startswith="https://www.tecmundo.com.br"
             )
+            domain = 'TecMundo'
         else:
             raise Http404("Domain not supported at this time!")
     else:
         all_news = NewsHeading.objects.all()
-    return {"all_news": all_news}
+    return {"all_news": all_news, "filtered": domain}
 
 
 def index(request):

@@ -1,10 +1,21 @@
 {% if all_news %}
+{% if filtered %}
+  <h1>Showing only news from: {{ filtered }}</h1>
+{% endif %}
 <form action="{% url 'list_domain' 'tecmundo' %}" method="post">{% csrf_token %}
-  <button id="tecmundo" type="submit">ONLY FROM TECMUNDO</button>
+  <button id="tecmundo" style="border: none;background: aliceblue;cursor: pointer;padding: 20px 10px;font-size: 16px;" type="submit">
+    <b>ONLY FROM TECMUNDO</b>
+  </button>
 </form>
 <ul>
+  {% load news_headline_filters %}
   {% for news_headline in all_news %}
-    <li>{{ news_headline.read_more }}</li>
+    <li>
+      <b>{{ news_headline.subtitle }}</b>
+      <span>{{ news_headline.title }}<span>
+      <a href="{{ news_headline.read_more }}" target="_blank">Read more...</a>
+      <a href="{{ news_headline.banner | normalize_news_url }}" target="_blank">Headline picture</a>
+    </li>
   {% endfor %}
 </ul>
 {% else %}
