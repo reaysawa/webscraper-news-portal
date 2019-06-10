@@ -52,7 +52,7 @@ cd PortalDjangoApp && ./manage.py runserver
 # Additional setup
 ## Crawling
 ### Make a local copy for crawling locally
-`scripts/single_page_mirror [URL] [name_of_folder]`
+`scripts/single_page_mirror.sh [URL] [name_of_folder]`
 ### Change into the crawled copy and run the server
 `cd fixtures/[name_of_folder] && python -m http.server`
 
