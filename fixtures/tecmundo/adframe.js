@@ -1,1 +1,1 @@
-www.tecmundo.com.br/adframe.js
+./www.tecmundo.com.br/adframe.js

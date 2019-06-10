@@ -1,1 +1,1 @@
-www.tecmundo.com.br/robots.txt
+./www.tecmundo.com.br/robots.txt
