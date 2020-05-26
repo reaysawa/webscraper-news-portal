@@ -5,15 +5,17 @@ This is an application that crawls news websites and displays the main news in a
 The things to look out for are:
 
 #### Shared ORM
-The persistence layer for storing crawler results is the same as the one used in the main app (i.e. the Django ORM for PortalDjangoApp).
+The Django ORM is used both for the app and the crawlers. In the latter, it achieves this by [faking](https://github.com/resolritter/webscraper-news-portal/blob/d5baff39134a79549f23a500c6e44118698c8a83/ScraperScrapyApp/pipelines/django_setup.py#L10) the launch of the main app, so that the Django's general infrastructure becomes fully ready to persist data, as if it were running the actual app.
 #### You can emulate a live crawling target by using scripts
-  - Create a local copy, with assets included, of a single website's page, using `wget`. It will converts links to the filesystem's structure, thus virtually "routing" even foreign assets to the same server.
-  - Run the mirrored local copy with `python -m http.server`, a built-in module, to serve the crawl target in the local network.
-  - **TL;DR** you can crawl as much as you want in a development environment.
+  - The bash script will create a local copy, assets included, of a single website's page using `wget`. Links are automatically converted to the filesystem's structure, thus being able to serve even foreign assets as if it were the actual server making network requests.
+  - The local mirror can be served `python -m http.server`, a built-in module. That enables you to practice and do dry scraping runs as much as you want in a development environment.
 #### The app
 A small app built with Django templates for filtering news by it's domain.
 
-# How to run RIGHT NOW
+# Run the server
+
+This repository ships with the website's and a sample database pre-populated already, so it's not needed to crawl upfront.
+
 ## 1. Install the dependencies
 `pip install -r requirements.txt`
 ## 2. Run the server
